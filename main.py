@@ -1,9 +1,23 @@
-from funçoes import carregar_dados
-caminho = "dados/halloween_vendas.csv"
+from pathlib import Path
+from funcoes import carregar_dados
 
-dados = carregar_dados(caminho)
+# Descobrir onde está o main.py
+pasta_projeto = Path(__file__).resolve().parent
 
-#===== DADOS ORIGINAIS =====
+# Localizar o CSV dentro da pasta dados
+caminho_csv = pasta_projeto / "dados" / "halloween_vendas.csv"
 
-print("===== DADOS ORIGINAIS =====")
-print(dados)    
+# Chamar a função e enviar o caminho
+dados = carregar_dados(caminho_csv)
+
+# Mostrar os nomes das colunas
+print("\n=== COLUNAS ===")
+print(dados.columns.tolist())
+
+# Mostrar quantidade de linhas e colunas
+print("\n=== TAMANHO ===")
+print(dados.shape)
+
+# Mostrar os primeiros registros do DataFrame
+print("\n=== PRIMEIROS REGISTROS ===")
+print(dados.head())
