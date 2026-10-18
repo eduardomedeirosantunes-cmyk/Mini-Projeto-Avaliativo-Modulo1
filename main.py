@@ -10,6 +10,7 @@ caminho_csv = pasta_projeto / "dados" / "halloween_vendas.csv"
 # Chamar a função e enviar o caminho
 dados = carregar_dados(caminho_csv)
 
+
 # Mostrar os nomes das colunas
 print("\n=== COLUNAS ===")
 print(dados.columns.tolist())
